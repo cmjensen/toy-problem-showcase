@@ -32,7 +32,7 @@ class FilterString extends Component {
                 <h4>Filter Sports</h4>
                 <span className='puzzleText'>Sports: { JSON.stringify(this.state.sports, null, 10) }</span>
                 <input className='inputLine' onChange={(e) => this.handleChange(e.target.value)}></input>
-                <button className='confirmationButton' onClick={() => this.filterSport.userInput}>Filter</button>
+                <button className='confirmationButton' onClick={() => this.filterSport(this.state).userInput}>Filter</button>
                 <span className='resultsBox filterStringRB'>Filtered Sports: { JSON.stringify(this.state.filteredArray, null, 10)}</span>
             </div>
         )

@@ -5,7 +5,7 @@ class Palindrome extends Component {
         super();
         this.state = {
             userInput: '',
-            palindrome: '',
+            palindrome: ''
         }
     }
 
@@ -14,7 +14,17 @@ class Palindrome extends Component {
     }
 
     checkPalindrome(userInput) {
+        let front = userInput;
+        let back = userInput;
+        back = back.split('');
+        back = back.reverse();
+        back = back.join('');
 
+        if(front === back) {
+            this.setState({palindrome: 'true'});
+        } else {
+            this.setState({palindrome: 'false'});
+        }
     }
 
     render(){
@@ -22,8 +32,8 @@ class Palindrome extends Component {
         <div className="puzzleBox filterStringPB">
             <h4>Palindrome</h4>
             <input className="inputLine" onChange={(e) => this.handleChange(e.target.value)}></input>
-            <button className="confirmationButton" onClick={() => this.checkPalindrome.userInput}></button>
-            <span className="resultsBox"></span>
+            <button className="confirmationButton" onClick={() => this.checkPalindrome(this.state.userInput)}>Check</button>
+            <span className="resultsBox">Palindrome: {this.state.palindrome}</span>
         </div>
         )
     }
